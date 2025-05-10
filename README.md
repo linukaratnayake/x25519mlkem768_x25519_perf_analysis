@@ -89,11 +89,10 @@ The client can be used to run performance tests on different TLS key exchange me
 
 The following are the software versions installed.
 
-1. Ballerina Swan Lake Update 12 (2201.12.2)
-2. OpenSSL 3.4.1 11 Feb 2025
+1. Ballerina Swan Lake Update 12
 
 The specifications of the host computers are as follows.
 
 - Apple MacBook Air M1 16GB RAM - 2000 iterations
-- PC with Intel Core i7 10th Gen 1.30 GHz, 16GB RAM (Windows 11) - 20000 iterations
+- PC with Intel Core i7 10th Gen 1.30 GHz, 16GB RAM (Windows 11) - 15000 iterations
 - PC with Intel Core i7 10th Gen 1.80 GHz, 16GB RAM (Ubuntu 22.04) - 1000 iterations
