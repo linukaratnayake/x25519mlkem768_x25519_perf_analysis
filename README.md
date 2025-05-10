@@ -30,12 +30,12 @@ The client can be used to run performance tests on different TLS key exchange me
 
 1. Configure the number of requests and batch size:
    ```
-   # Edit client/Config.toml to set required values
-   requestCount = 1000000   # Total number of requests to make
-   batchSize = 2000         # Number of requests per batch
+   # Edit Config.toml file
+   requestCount = 2000
    ```
+> The host computer gave a memory error when values above 2000 are used.
 
-2. Test Classical Elliptic Curve (x25519):
+2. Test Classical Elliptic Curve Algorithm (x25519):
    ```bash
    # Set named group to x25519
    export _JAVA_OPTIONS="-Djdk.tls.namedGroups=x25519"
@@ -48,7 +48,7 @@ The client can be used to run performance tests on different TLS key exchange me
    mv ../results/timings.csv ../results/timings_x25519.csv
    ```
 
-3. Test Hybrid Post-Quantum (X25519MLKEM768):
+3. Test Hybrid Post-Quantum Algorithm (X25519MLKEM768):
    ```bash
    # Set named group to X25519MLKEM768
    export _JAVA_OPTIONS="-Djdk.tls.namedGroups=X25519MLKEM768"
@@ -61,43 +61,22 @@ The client can be used to run performance tests on different TLS key exchange me
    mv ../results/timings.csv ../results/timings_hybrid.csv
    ```
 
+> Alternatively, instead of above steps 2 and 3, you can run the `run_client.sh` file.
+
 4. Analyze the results:
    ```bash
    # Use the Jupyter notebook to visualize results
    cd ../results
-   jupyter notebook visualize_results.ipynb
+   jupyter-notebook visualize_results.ipynb
    ```
 
-### Batch Processing
+## Versions and Configurations
 
-For large numbers of requests (e.g., 1 million), the client processes requests in batches to avoid memory issues. Progress is shown per batch, and results are incrementally written to the CSV file.
+The following are the software versions installed.
 
-### Other Named Groups
+1. Ballerina Swan Lake Update 12 (2201.12.2)
+2. OpenSSL 3.4.1 11 Feb 2025
 
-Other possible named groups include:
-- P256KYBER512
-- P384KYBER768
-- X25519KYBER768
+The specification of the host computer is as follows.
 
-## X25519MLKEM768 Configuration
-
-This implementation supports TLS 1.3 with X25519MLKEM768 hybrid named group. You need:
-
-1. OpenSSL 3.2+ with post-quantum support
-2. Ballerina 2201.12.2 or newer with proper TLS implementation
-
-### Changing the Named Group
-
-The named group can be changed by editing the `Config.toml` file:
-
-```toml
-# Change to any supported named group
-namedGroup = "X25519MLKEM768" 
-```
-
-### Testing with OpenSSL
-
-Test the server with OpenSSL (if supported):
-```
-openssl s_client -connect localhost:9090 -curves X25519MLKEM768
-```
+- MacBook Air M1 16GB RAM
