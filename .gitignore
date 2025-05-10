@@ -1,2 +1,5 @@
 resources/*
 !resources/generate_certs.sh
+
+// Ignore all images
+*.png

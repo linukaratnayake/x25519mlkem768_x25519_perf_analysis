@@ -1,7 +1,8 @@
 import ballerina/http;
 import ballerina/io;
 import ballerina/time;
-// import ballerina/lang.runtime;
+import ballerina/lang.runtime;
+
 // Number of requests to send
 configurable int requestCount = 50;
 
@@ -56,6 +57,18 @@ public function main() returns error? {
         i = i + 1;
 
         // Sleep for a short duration to avoid overwhelming the server
-        // runtime:sleep(0.1);
+        runtime:sleep(0.01);
     }
+    
+    // Write results to CSV file
+    string csvContent = "request_number,duration_microseconds\n";
+    int requestNum = 1;
+    foreach decimal timing in timings {
+        csvContent = csvContent + requestNum.toString() + "," + timing.toString() + "\n";
+        requestNum = requestNum + 1;
+    }
+    
+    string filePath = "../results/timings.csv";
+    check io:fileWriteString(filePath, csvContent);
+    io:println("Results written to: " + filePath);
 }
