@@ -24,15 +24,28 @@ A simple HTTPS server in Ballerina for testing with X25519MLKEM768 hybrid key ex
 
 ## X25519MLKEM768 Configuration
 
-To properly enable X25519MLKEM768 named group for TLS, you'll need:
+This implementation supports TLS 1.3 with X25519MLKEM768 hybrid named group. You need:
 
 1. OpenSSL 3.2+ with post-quantum support
-2. Configure your environment to support this named group
-3. You might need to modify the Ballerina runtime's SSL configuration or use custom providers
+2. Ballerina 2201.12.2 or newer with proper TLS implementation
 
-Example OpenSSL configuration (if supported):
+### Changing the Named Group
+
+The named group can be changed by editing the `Config.toml` file:
+
+```toml
+# Change to any supported named group
+namedGroup = "X25519MLKEM768" 
+```
+
+Other possible named groups include:
+- P256KYBER512
+- P384KYBER768
+- X25519KYBER768
+
+### Testing with OpenSSL
+
+Test the server with OpenSSL (if supported):
 ```
 openssl s_client -connect localhost:9090 -curves X25519MLKEM768
 ```
-
-Note: Full support for X25519MLKEM768 depends on your Ballerina version and underlying TLS implementation.
