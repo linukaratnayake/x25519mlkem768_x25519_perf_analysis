@@ -70,6 +70,14 @@ The client can be used to run performance tests on different TLS key exchange me
    jupyter-notebook visualize_results.ipynb
    ```
 
+   > By default, outliers will be removed from datapoints. To turn off this setting, change Cell 4.
+
+   ```python
+   # Configuration parameter for outlier removal
+   # Set to True to remove outliers in the data, False to keep all data points
+   remove_outliers = True
+   ```
+
 ## Versions and Configurations
 
 The following are the software versions installed.
