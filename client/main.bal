@@ -4,7 +4,7 @@ import ballerina/time;
 import ballerina/lang.runtime;
 
 // Number of requests to send
-configurable int requestCount = 50;
+configurable int requestCount = 2000;
 
 public function main() returns error? {
     string activeNamedGroups = getActiveNamedGroups();
