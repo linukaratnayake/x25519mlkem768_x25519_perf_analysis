@@ -1,5 +1,8 @@
 resources/*
 !resources/generate_certs.sh
 
-// Ignore all images
+# Ignore all images
 *.png
+
+# Ignore all CSV files
+*.csv
