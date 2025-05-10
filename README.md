@@ -1,6 +1,13 @@
-# X25519MLKEM768 Performance Test Server
+# Performance Analysis and Comparison between X25519MLKEM768 and X25519 Algorithms
 
-A simple HTTPS server in Ballerina for testing with X25519MLKEM768 hybrid key exchange.
+A simple HTTPS server is written in Ballerina, and tested against a simple client also written in Ballerina. The client generates the early key shares in the following two scenarios and tested against the server.
+
+1. Both `X25519MLKEM768` and `X25519`.
+2. Only `X25519`.
+
+The results are saved in CSV format any analyzed using Python.
+
+> ### Please note that most of the code is generated using AI, and hence can contain bugs and/ or issues with logic.
 
 ## Setup Instructions
 
