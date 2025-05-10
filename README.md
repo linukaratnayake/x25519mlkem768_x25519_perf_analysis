@@ -21,7 +21,7 @@ The results are saved in CSV format any analyzed using Python.
 2. Run the server:
    ```
    cd server
-   bal run main.bal
+   bal run
    ```
 
 3. Access the endpoint:
@@ -92,6 +92,8 @@ The following are the software versions installed.
 1. Ballerina Swan Lake Update 12 (2201.12.2)
 2. OpenSSL 3.4.1 11 Feb 2025
 
-The specification of the host computer is as follows.
+The specifications of the host computers are as follows.
 
-- MacBook Air M1 16GB RAM
+- Apple MacBook Air M1 16GB RAM - 2000 iterations
+- PC with Intel Core i7 10th Gen 1.30 GHz, 16GB RAM (Windows 11) - 20000 iterations
+- PC with Intel Core i7 10th Gen 1.80 GHz, 16GB RAM (Ubuntu 22.04) - 1000 iterations
