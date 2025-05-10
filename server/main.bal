@@ -13,8 +13,7 @@ listener http:Listener secureListener = new(9090,
         protocol: { 
             name: "TLS", 
             versions: ["TLSv1.3"] 
-        },
-        ciphers: ["TLS_AES_256_GCM_SHA384", "TLS_CHACHA20_POLY1305_SHA256"]
+        }
     }
 );
 
