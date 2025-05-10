@@ -19,7 +19,6 @@ listener http:Listener secureListener = new(9090,
 // Simple service with one endpoint
 service / on secureListener {
     resource function get greeting() returns string {
-        io:println("Received request");
         return "Hello, World from secure HTTPS server.";
     }
 }

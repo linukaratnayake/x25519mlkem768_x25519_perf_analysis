@@ -1,7 +1,7 @@
 import ballerina/http;
 import ballerina/io;
 import ballerina/time;
-import ballerina/lang.runtime;
+// import ballerina/lang.runtime;
 // Number of requests to send
 configurable int requestCount = 50;
 
@@ -43,12 +43,12 @@ public function main() returns error? {
         
         decimal endTime = time:monotonicNow();
         
-        // Calculate duration (monotonicNow returns nanoseconds)
-        decimal duration = endTime - startTime;
+        // Calculate duration in micro seconds (monotonicNow returns seconds)
+        decimal duration = (endTime - startTime) * 1000000;
         
         timings.push(duration);
         
-        io:println("Request " + (i + 1).toString() + ": " + duration.toString() + " ns");
+        io:println("Request " + (i + 1).toString() + ": " + duration.toString() + " μs");
         
         // Let the client go out of scope naturally - no explicit close needed
         // The new client instance for the next request will force a new handshake
@@ -56,6 +56,6 @@ public function main() returns error? {
         i = i + 1;
 
         // Sleep for a short duration to avoid overwhelming the server
-        runtime:sleep(0.1);
+        // runtime:sleep(0.1);
     }
 }
