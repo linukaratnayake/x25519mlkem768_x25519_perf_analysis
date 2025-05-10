@@ -1,0 +1,2 @@
+resources/*
+!resources/generate_certs.sh
