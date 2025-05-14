@@ -12,20 +12,22 @@ The results are saved in CSV format any analyzed using Python.
 ## Setup Instructions
 
 1. Generate SSL certificates:
-   ```
+   ```bash
    cd resources
    chmod +x generate_certs.sh
-   ./generate_certs.sh
+   ./generate_certs.sh # For Linux/ MacOS
+   ./generate_certs.ps1 # For Windows
    ```
 
 2. Run the server:
-   ```
+   ```bash
+   export _JAVA_OPTIONS="-Djdk.tls.namedGroups=X25519MLKEM768,x25519"
    cd server
    bal run
    ```
 
 3. Access the endpoint:
-   ```
+   ```bash
    curl -k https://localhost:9090/greeting
    ```
 
@@ -35,9 +37,9 @@ The client can be used to run performance tests on different TLS key exchange me
 
 ### Running Performance Tests
 
-1. Configure the number of requests and batch size:
+1. Configure the number of requests:
    ```
-   # Edit Config.toml file
+   # Add Config.toml file or edit main.bal file
    requestCount = 2000
    ```
 > The host computer gave a memory error when values above 2000 are used.
@@ -57,8 +59,8 @@ The client can be used to run performance tests on different TLS key exchange me
 
 3. Test Hybrid Post-Quantum Algorithm (X25519MLKEM768):
    ```bash
-   # Set named group to X25519MLKEM768
-   export _JAVA_OPTIONS="-Djdk.tls.namedGroups=X25519MLKEM768"
+   # Set named groups to X25519MLKEM768 and X25519
+   export _JAVA_OPTIONS="-Djdk.tls.namedGroups=X25519MLKEM768,x25519"
    
    # Run the client
    cd client
