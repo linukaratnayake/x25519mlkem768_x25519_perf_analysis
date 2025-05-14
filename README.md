@@ -14,9 +14,13 @@ The results are saved in CSV format any analyzed using Python.
 1. Generate SSL certificates:
    ```bash
    cd resources
+
+   # For Linux/ MacOS
    chmod +x generate_certs.sh
-   ./generate_certs.sh # For Linux/ MacOS
-   ./generate_certs.ps1 # For Windows
+   ./generate_certs.sh
+
+   # For Windows
+   ./generate_certs.ps1
    ```
 
 2. Run the server:
@@ -70,7 +74,7 @@ The client can be used to run performance tests on different TLS key exchange me
    mv ../results/timings.csv ../results/timings_hybrid.csv
    ```
 
-> Alternatively, instead of above steps 2 and 3, you can run the `run_client.sh` file.
+> Alternatively, instead of above steps 2 and 3, you can run the `run_client.sh` file on Linux/ MacOS or `run_client.ps1` on Windows.
 
 4. Analyze the results:
    ```bash
@@ -96,5 +100,5 @@ The following are the software versions installed.
 The specifications of the host computers are as follows.
 
 - Apple MacBook Air M1 16GB RAM - 2000 iterations
-- PC with Intel Core i7 10th Gen 1.30 GHz, 16GB RAM (Windows 11) - 15000 iterations
-- PC with Intel Core i7 10th Gen 1.80 GHz, 16GB RAM (Ubuntu 22.04) - 1000 iterations
+- PC with Intel Core i7 10th Gen 1.30 GHz, 16GB RAM (Windows 11) - 2000 iterations
+- PC with Intel Core i7 10th Gen 1.80 GHz, 16GB RAM (Ubuntu 22.04) - 2000 iterations
